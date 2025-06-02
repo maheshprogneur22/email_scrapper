@@ -24,7 +24,7 @@ def scrape_emails_from_url_list(urls):
 
             # Wait for full JavaScript rendering
             print("⏳ Waiting for JS to render...")
-            time.sleep(12)  # increase if needed
+            time.sleep(5)  # increase if needed
 
             html_content = driver.page_source
             soup = BeautifulSoup(html_content, 'html.parser')
