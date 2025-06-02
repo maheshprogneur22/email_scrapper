@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-gchm(upj)1m8s-0m!ig3!roq-1_&9l@!b2ud(+td(-=kc0idbd
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['82.29.162.32', 'localhost']
+ALLOWED_HOSTS = ['82.29.162.32', '127.0.0.1','localhost']
 
 
 
@@ -81,6 +81,11 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+DATA_UPLOAD_MAX_MEMORY_SIZE = 104857600  # 100MB
 
 
 # Password validation
