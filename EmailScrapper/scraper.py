@@ -15,7 +15,7 @@ def scrape_emails_from_url_list(urls):
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
 
-    options.binary_location = "/usr/bin/google-chrome"
+    #options.binary_location = "/usr/bin/google-chrome"
 
     driver = uc.Chrome(options=options)
 

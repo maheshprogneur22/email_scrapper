@@ -1,12 +1,24 @@
-import pandas as pd
 import io
+import os
+import pandas as pd
+from django.conf import settings
 from django.shortcuts import render
 from django.http import HttpResponse
 from .scraper import scrape_emails_from_url_list
 
 def home(request):
     if request.method == 'POST' and request.FILES.get('file'):
-        df = pd.read_excel(request.FILES['file'])
+        file = request.FILES['file']
+        file_name = file.name
+
+        # Save the uploaded file to MEDIA_ROOT
+        file_path = os.path.join(settings.MEDIA_ROOT, file_name)
+        with open(file_path, 'wb') as destination:
+            for chunk in file.chunks():
+                destination.write(chunk)
+
+        # Now read the file and process it
+        df = pd.read_excel(file_path)
         urls = df.iloc[:, 0].dropna().tolist()
 
         results = scrape_emails_from_url_list(urls)
