@@ -21,11 +21,11 @@ def scrape_emails_from_url_list(urls):
 
     for url in urls:
         try:
-            print(f"\n🔍 Scraping: {url}")
+            print(f"\n Scraping: {url}")
             driver.get(url)
 
             # Wait for full JavaScript rendering
-            print("⏳ Waiting for JS to render...")
+            print(" Waiting for JS to render...")
             time.sleep(5)  # increase if needed
 
             html_content = driver.page_source
@@ -44,12 +44,12 @@ def scrape_emails_from_url_list(urls):
                 mailto_emails.append(email)
 
             all_emails = set(raw_emails + mailto_emails)
-            print(f"✅ Found emails: {all_emails}")
+            print(f" Found emails: {all_emails}")
 
             results.append({'url': url, 'emails': ', '.join(all_emails)})
 
         except Exception as e:
-            print(f"❌ Error scraping {url}: {e}")
+            print(f" Error scraping {url}: {e}")
             results.append({'url': url, 'emails': f"Error: {str(e)}"})
 
     driver.quit()

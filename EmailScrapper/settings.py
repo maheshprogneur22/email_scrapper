@@ -25,8 +25,7 @@ SECRET_KEY = 'django-insecure-gchm(upj)1m8s-0m!ig3!roq-1_&9l@!b2ud(+td(-=kc0idbd
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['82.29.162.32', '127.0.0.1','localhost']
-
+ALLOWED_HOSTS = ['82.29.162.32', '127.0.0.1','localhost','.onrender.com']
 
 
 # Application definition
@@ -48,6 +47,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'EmailScrapper.urls'
@@ -124,6 +124,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / "static"]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
